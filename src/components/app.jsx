@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import flats from '../../flats.js';
+import flats from '../../data/flats.js';
+import Flats from './flats.jsx';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      flats
+    };
+  }
+
   render() {
     return(
       <div>
-        <h1>Hello this is victor</h1>
+        <Flats flats={this.state.flats} />
       </div>
     );
   }
