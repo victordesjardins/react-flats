@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import Flat from './flat.jsx';
 
-class Flats extends Component {
+const Flats = (props) => {
+  const renderList = () => {
+    return props.flats.map ((flat, index) => { return (<Flat price={flat.price} name={flat.name} imageUrl={flat.imageUrl} key={flat.lat} selectFlat={props.selectFlat} index={index} />);
+    });
+  };
 
-  renderList = () => {
-    return this.props.flats.map (flat => { return <Flat price={flat.price} name={flat.name} imageUrl={flat.imageUrl}/>})
-  }
-
-  render() {
-    return(
-      <div className="flat-list">
-        {this.renderList()}
-      </div>
-    );
-  }
-}
+  return(
+    <div className="flat-list">
+      {renderList()}
+    </div>
+  );
+};
+// class Flats extends Component {
 
 export default Flats;
